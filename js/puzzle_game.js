@@ -46,6 +46,7 @@
           board.appendChild(tile);
 
           tile.onmouseover = movable;
+          tile.ontouchstart = movable;
           tile.onmouseup = onMove;
           tile.onmouseout = resetTileStyle;
         }
@@ -65,7 +66,8 @@
     }
   }
 
-  function onMove(event, updateView = true) {
+  function onMove(event) {
+
     const tile = event.target;
 
     if (tile.classList.contains("tileMovable")) {
@@ -77,24 +79,17 @@
       puzzleBoard[emptyTile.row][emptyTile.column] = puzzleBoard[tempRow][tempColumn]
       puzzleBoard[tempRow][tempColumn] = null;
 
-      //view
-      if (updateView) {
-        tile.style.left = emptyTile.column * TILE_SIZE + "px";
-        tile.style.top = emptyTile.row * TILE_SIZE + "px";
-        tile.row = emptyTile.row;
-        tile.column = emptyTile.column;
+      //view      
+      tile.style.left = emptyTile.column * TILE_SIZE + "px";
+      tile.style.top = emptyTile.row * TILE_SIZE + "px";
+      tile.row = emptyTile.row;
+      tile.column = emptyTile.column;
 
-        resetTileStyle(event);
-
-        isWin();
-      }
+      resetTileStyle(event);
+      isWin();
 
       emptyTile = { row: tempRow, column: tempColumn }
     }
-  }
-
-  function move(tile, updateView) {
-
   }
 
   function resetTileStyle(event) {
