@@ -1,9 +1,10 @@
 var cacheName = '15puzzle';
 var filesToCache = [
-  '/',
-  '/index.html',
-  '/css/style.css',
-  '/js/main.js'
+  './',
+  './index.html',
+  './css/style.css',
+  './js/main.js',
+  './js/puzzle_game.js'
 ];
 
 // start the service and cache content
