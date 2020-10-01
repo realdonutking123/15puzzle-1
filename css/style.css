@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  background-color: black;
 }
 
 html,
@@ -9,7 +10,6 @@ html,
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: black;
 }
 
 .container {
